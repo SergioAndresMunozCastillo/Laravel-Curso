@@ -1,0 +1,5 @@
+*Laravel does have great tools like Homestead, letting you make use of laravel on a VM
+
+------------------ACHIEVEMENTS----------------
+
+*Nothing, this lesson was for installing a macOS package, useless... for now

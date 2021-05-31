@@ -1,0 +1,7 @@
+-----------NOTES-------------------------
+*Wildcards 
+
+-----------ACHIEVEMENTS-------------------
+*Created a wildcard
+
+*Made a wanna be DB with an array to show data //look web.php for more details

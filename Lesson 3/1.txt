@@ -1,0 +1,13 @@
+-----------NOTES-------------------------
+
+
+-----------ACHIEVEMENTS-------------------
+
+
+-----------Reference files-----------------
+
+.env
+
+./config/database.php
+
+web.php

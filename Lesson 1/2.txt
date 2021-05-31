@@ -1,0 +1,11 @@
+For installation you know the thing, get PHP 7.2, MySQL, a cool IDE, but most importyantly:
+
+Composer:
+
+	*Bedrock of modern PHP development
+	*Dependency manager
+
+Recommendations: 
+
+	*Install Laragon, it's pretty much a better XAMPP
+	*Use Linux ffs, install a new Linux distro on this machin

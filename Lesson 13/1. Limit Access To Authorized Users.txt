@@ -1,0 +1,19 @@
+---------------Notes-------------------
+*We can limit what the end-user can see using the @can() and @endcan to disable and make
+invisible whaterer inside, in this case it was something like 
+@can('update-conversation', $conversation)
+
+
+*In /Providers/AuthServiceProvider.php there you can make the key 'update-conversation' 
+(or whatever name you want) and asocciate it with a function.
+
+*Authorization 101:
+
+	-Go to /Providers/AuthServiceProvider.php and inside the boot function make 
+	Gate::define ('key-name', function what to do)
+
+	-In any page you can reference your key inside @can() and the variable that holds whatever
+	useful for the function inside Gate::define
+---------------Accomplishments-----------
+
+---------------File changes---------------

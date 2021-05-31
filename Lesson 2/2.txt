@@ -1,0 +1,12 @@
+-----------NOTES-------------------------
+*Request helper function servers to get information
+
+*Use {{}}, anything inside it will be recognized as a variable to show. Will recognize datatype
+
+*Use {!! !!} to show any key value, will not recognize datatype.
+
+-----------ACHIEVEMENTS-------------------
+
+*Use request() helper function
+
+*Use double {} to call any variable

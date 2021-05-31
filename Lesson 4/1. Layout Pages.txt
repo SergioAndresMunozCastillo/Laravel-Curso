@@ -1,0 +1,27 @@
+-----------NOTES-------------------------
+
+*Layout pages are pretty much a view file which contains all the generic content that every other page
+will have, so you don't have to write the same script on different view, or CSS and so on.
+
+*In the layout page we put @yield('view_tag') to insert the content of a view with said tag
+
+*@section('view_tag') to begin the code which the layout page will take if called
+
+*@endsection to close the code which  the layout page will take.
+
+*@extends('layout_page_name') in the view with unique content to specify to wich layout page will send its unique content or code.
+
+-----------ACHIEVEMENTS-------------------
+
+*Made a layout page
+
+*Made view pages with only their unique code, not generic code that every webpage has
+
+*Made router for contact view
+-----------Reference files-----------------
+
+./resources/layout.blade.php
+
+./resources/contact.blade.php
+
+./routes/web.php

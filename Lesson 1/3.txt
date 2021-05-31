@@ -1,0 +1,16 @@
+*WSL means Windows Subsystem for Linux, its purpose is to bring a 
+linux console to windows (cus windows have no good one lol antiwindows agenda)
+
+*It is necessary to have Docker to make laravel projects
+
+--------------------ACHIEVEMENTS-------------------------
+
+*Installing Laravel 6
+
+*Creating a project
+
+*Making laravel package globally accessable from any location
+
+*Reasignign Composer PATH with: %USERPROFILE%\AppData\Roaming\Composer\vendor\bin
+
+*Running project

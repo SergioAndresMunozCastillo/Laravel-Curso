@@ -1,0 +1,11 @@
+-----------NOTES-------------------------
+
+*Laravel uses an html view template called blade, so any view will have a .blade.php 
+extension rather than a .php alone.
+
+
+-----------ACHIEVEMENTS-------------------
+
+*We created a view
+
+*Understood view routing

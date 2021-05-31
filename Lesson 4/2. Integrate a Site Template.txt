@@ -1,0 +1,28 @@
+-----------NOTES-------------------------
+
+*You can create different tags for sections
+
+*Oddly enough, all routes can work as a source or reference on html, so instead of using
+
+href="/public/about.html"
+
+it can rather be
+
+href="/about"
+
+
+-----------ACHIEVEMENTS-------------------
+
+*Inserted a new template
+
+-----------Reference files-----------------
+
+./resources/views/about.blade.php
+
+
+./resources/views/welcome.blade.php
+
+
+./resources/views/contact.blade.php
+
+./public //cus' we saved there some css and images brosky

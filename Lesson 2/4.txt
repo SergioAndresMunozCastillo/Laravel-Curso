@@ -1,0 +1,25 @@
+-----------NOTES-------------------------
+*PostController or PostsController are typically written for controller arguments, it's a convention
+
+
+
+*In order to make controllers show in laravel 8.x do this->
+
+use App\Http\Controllers\PostsController;
+
+Route::get('/posts/{post}', [PostsController::class, 'show']);
+
+
+*Command: php artisan make:controller ControllerName
+to make a controller automatically.
+
+-----------ACHIEVEMENTS-------------------
+
+*Made a controller
+
+-----------Reference files-----------------
+
+
+web.php
+
+./app/Http/Controllers/PostsController.php

@@ -1,0 +1,13 @@
+-----------NOTES-------------------------
+
+*Index list of articles or users
+
+*Show: show me that article or object
+
+*Create, store, edit, update, destroy are the 5 rest RESTFUL controller actions.
+
+-----------ACHIEVEMENTS-------------------
+
+*
+
+-----------Reference files-----------------
