@@ -33,9 +33,49 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                      <li> <a href="/threads">All Threads</a> </li>
+
+                      <li>
+                        <a href="/threads/create">New Thread</a>
+                      </li>
+
+                      <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                          <li class="nav-item dropdown">
+                            <a href="/threads" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">All Threads</a> </li>
+                            @if(auth()->check())
+                            <li><a class="dropdown-item" href="/threads?by={{ auth()->user()->name }}">My Threads</a></li>
+                            @endif
+                          </ul>
+                        </li>
+                      </ul>
+
+                      <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                      <li class="nav-item dropdown">
+                        <a href="/threads" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">All Threads</a> </li>
+                        @if(auth()->check())
+                        <li><a class="dropdown-item" href="/threads?by={{ auth()->user()->name }}">My Threads</a></li>
+                        @endif
+                      </ul>
                     </ul>
 
+
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
+                          Dropdown
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                          @foreach(App\Channel::all() as $channel)
+                          <li><a class="dropdown-item" href="/threads/{{ $channel->slug }}">{{ $channel->name }}</a></li>
+                          @endforeach
+                        </ul>
+                      </li>
+                    </ul>
+                    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -68,6 +108,7 @@
                             </li>
                         @endguest
                     </ul>
+                  </div>
                 </div>
             </div>
         </nav>

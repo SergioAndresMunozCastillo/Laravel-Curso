@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Thread;
+use App\Channel;
+use App\User;
 use Illuminate\Http\Request;
 
 class ThreadController extends Controller
@@ -12,9 +14,31 @@ class ThreadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Channel $channel)
     {
+      if($channel->exists){
+        $threads = $channel->threads()->latest();
+      } else {
+        $threads = Thread::latest();
+      }
+      /*
+      if($channelSlug){
+        $channelId = Channel::where('slug', $channelSlug)->first()->id;
+
+        $threads = Thread::where('channel_id', $channelId)->latest()->get();
+      } else {
         $threads = Thread::latest()->get();
+
+
+      }
+*/
+        //if request('by'), we should filter by username
+        if($username = request('by')){
+          $user = \App\User::where('name', $username)->firstOrFail();
+
+          $threads->where('user_id', $user->id);
+        }
+        $threads = $threads->get();
 
         return view('threads.index', compact('threads'));
     }
@@ -37,6 +61,13 @@ class ThreadController extends Controller
      */
     public function store(Request $request)
     {
+
+      $this->validate($request, [
+        'title' => 'required',
+        'body' => 'required',
+        'channel_id' => 'required|exists:channels,id'
+      ]);
+
         $thread = Thread::create([
           'user_id' => auth()->id(),
           'channel_id' => request('channel_id'),
@@ -48,10 +79,11 @@ class ThreadController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param  $channelId
      * @param  \App\Thread  $thread
      * @return \Illuminate\Http\Response
      */
-    public function show(Thread $thread)
+    public function show($channelId, Thread $thread)
     {
         return view('threads.show', compact('thread'));
     }
