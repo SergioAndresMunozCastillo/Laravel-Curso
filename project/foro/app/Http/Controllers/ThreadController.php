@@ -21,6 +21,7 @@ class ThreadController extends Controller
       } else {
         $threads = Thread::latest();
       }
+
       /*
       if($channelSlug){
         $channelId = Channel::where('slug', $channelSlug)->first()->id;
@@ -28,8 +29,6 @@ class ThreadController extends Controller
         $threads = Thread::where('channel_id', $channelId)->latest()->get();
       } else {
         $threads = Thread::latest()->get();
-
-
       }
 */
         //if request('by'), we should filter by username
