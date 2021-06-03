@@ -25,9 +25,10 @@ Route::post('/threads', 'ThreadController@store');
 
 //Route::get('/threads/{thread}', 'ThreadController@show');
 Route::get('/threads/{channel}/{thread}', 'ThreadController@show');
-
+Route::delete('/threads/{channel}/{thread}', 'ThreadController@destroy');
 //Este de aqui encapsula todas las rutas previamente comentadas
 //Route::resource('threads', 'ThreadController');
 
 Route::post('/threads/{channel}/{thread}/replies', 'RepliesController@store');
 Route::post('/replies/{reply}/favorites', 'FavoritesController@store');
+Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');

@@ -9,6 +9,13 @@
                   <h2> <a href="#">{{ $thread->creator->name }}</a>
                     posted:
                     {{ $thread->title }}</h2>
+                    @can('update', $thread)
+                    <form action="{{ $thread->path() }}" method="POST">
+                      @csrf
+                      {{ method_field('DELETE') }}
+                      <button type="submit" class="btn btn-link">Delete Thread</button>
+                    </form>
+                    @endcan
                 </div>
 
                 <div class="panel-body">

@@ -129,8 +129,19 @@ class ThreadController extends Controller
      * @param  \App\Thread  $thread
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Thread $thread)
+    public function destroy($channel, Thread $thread)
     {
-        //
+      //$thread->replies()->delete();
+      $this->authorize('update', $thread);
+      if($trhead->user_id != auth()->user()){
+        abort(403, 'You do not have permission from you rparents you goose');
+      }
+
+      $thread->delete();
+
+      if(request()->wantsJson()){
+        return response([], 204);
+      }
+      return redirect('/threads');
     }
 }
