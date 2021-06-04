@@ -31,4 +31,9 @@ class RepliesController extends Controller
 
         return back();
     }
+
+    public function update(Reply $reply)
+    {
+      $reply->update(request(['body']));
+    }
 }
