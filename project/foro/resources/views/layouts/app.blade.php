@@ -124,6 +124,8 @@
 
         <main class="py-4">
             @yield('content')
+
+            <flash message="Temporary message"></flash>
         </main>
     </div>
 </body>

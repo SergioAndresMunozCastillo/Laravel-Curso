@@ -1,31 +1,26 @@
-@extends('layouts.app');
+@extends('layouts.app')
 
 @section('content')
-<div class="panel panel-default">
-    <div class="panel-heading">
-  
-      <div class="level">
-        <h5 class="flex">
-          
-      </div>
-    </div>
-  
-      <div class="panel-body">
-        @foreach($profileUser->threads as $thread)
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                <h2> <a href="#">{{ $thread->creator->name }}</a>
-                    posted:
-                    {{ $thread->title }}</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="page-header">
+                    <h1>
+                        {{ $profileUser->name }}
+                    </h1>
                 </div>
 
-                <div class="panel-body">
-                {{ $thread->body }}
-                </div>
+                @foreach ($activities as $date => $activity)
+                    <h3 class="page-header">{{ $date }}</h3>
+
+                    @foreach ($activity as $record)
+                      @if (view()->exists("profiles.activities.{$record->type}"))
+                          @include ("profiles.activities.{$record->type}", ['activity' => $record])
+                      @endif
+                    @endforeach
+                @endforeach
             </div>
-        @endforeach
-      </div>
-  </div>
-  <hr>
-  
+        </div>
+        <example-component></example-component>
+    </div>
 @endsection

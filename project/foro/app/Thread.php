@@ -21,9 +21,14 @@ class Thread extends Model
       });
 
       static::deleting(function ($thread){
-        $thread->replies()->delete();
+        $thread->replies->each->delete();
       });
 
+/*
+      static::deleting(function ($thread){
+        $thread->replies()->delete();
+      });
+*/
     }
 
     public function path(){
@@ -57,5 +62,10 @@ class Thread extends Model
     public function scopeFilter($query, $filters)
     {
       return $filters->apply($query);
+    }
+
+    public function thread()
+    {
+        return $this->belongsTo(Thread::class);
     }
 }

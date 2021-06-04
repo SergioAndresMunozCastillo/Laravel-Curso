@@ -17,6 +17,10 @@ trait RecordsActivity
         static::created(function ($thread){
             $thread->recordActivity('created');
           });
+
+          static::deleting(function ($model){
+            $model->activity()-delete();
+          });
     }
 
 

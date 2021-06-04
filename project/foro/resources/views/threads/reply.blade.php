@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div class="panel panel-default" id="reply-{{ $reply->id }}">
   <div class="panel-heading">
 
     <div class="level">
@@ -18,5 +18,16 @@
     <div class="panel-body">
       {{ $reply->body }}
     </div>
+
+    @can ('update', $reply)
+        <div class="panel-footer">
+            <form method="POST" action="/replies/{{ $reply->id }}">
+                @csrf
+                {{ method_field('DELETE') }}
+
+                <button type="submit" class="btn btn-danger btn-xs">Delete</button>
+            </form>
+        </div>
+    @endcan
 </div>
 <hr>
