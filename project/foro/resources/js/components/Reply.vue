@@ -10,11 +10,21 @@
 
         methods: {
             update(){
-                axios.patch('/replies' + this.attributes.id, {
+                axios.patch('/replies/' + this.attributes.id, {
                     body: this.body
                 });
 
                 this.editing = false;
+            },
+
+            destroy() {
+              axios.delete('/replies/' + this.attributes.id);
+
+              console.log('Something')
+
+              $(this.$el).fadeOut(300, function () {
+                flash('Your reply has been deleted.');
+                });
             }
         }
     }
