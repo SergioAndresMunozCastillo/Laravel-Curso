@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Favoritable;
 
 class Reply extends Model
 {
@@ -10,6 +11,10 @@ class Reply extends Model
   use RecordsActivity;
 
     protected $guarded = [];
+
+    protected $with = ['owner', 'favorites'];
+
+    protected $appends = ['favoritesCount', 'isFavorited'];
 
     public function owner()
     {

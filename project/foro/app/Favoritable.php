@@ -30,6 +30,17 @@ trait Favoritable
         }
     }
 
+    public function unfavorite()
+    {
+        $attributes = ['user_id' => auth()->id()];
+
+        $this()-favorites()->where($attributes)->delete();
+    }
+
+    public function getIsFavoritedAttribute(){
+        return $this->isFavorited();
+    }
+
     /**
      * Determine if the current reply has been favorited.
      *
